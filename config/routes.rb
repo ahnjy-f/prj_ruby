@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :accounts do
+    root "top#index"
+    get "login" => "session#index", as: :login
+    post "session" => "session#create", as: :session
+    delete "session" => "session#destroy"
+  end
+
 end
