@@ -1,26 +1,23 @@
 require "pp"
-class Accounts::SessionController < Accounts::Base
+class Account::SessionController < Account::Base
     def new
-        if current_accounts
-            redirect_to :accounts_root #going->dashborad
+        if current_account
+            redirect_to :account_root #going->dashborad
         else
-            @form = Accounts::LoginForm.new #-> new form
+            @form = Account::LoginForm.new #-> new form
             render action: "new" 
         end
     end
     
     def create
-        @form = Accounts::LoginForm.new(params[:account_login_form])
-        
+        @form = Account::LoginForm.new(params[:account_login_form])        
         pp @form
-        
         pp @form.mail_address
         pp @form.hash_password
-        
         pp params
-        pp params[:forms_accounts_login_form]
+        pp params[:account_login_form]
         pp "接近します"
-        
+        #__________________________________________________________________
         if @form.mail_address.present?
             account_member=
             Account.find_by("LOWER(mail_address) = ?", @form.mail_address.downcase)
@@ -32,9 +29,5 @@ class Accounts::SessionController < Accounts::Base
             pp "情報があります"
         end
     end
-        
-        
-        
-    
-    redirect_to :accounts_root 
+    redirect_to :account_root 
 end
