@@ -1,5 +1,7 @@
 class Account::TopController < ApplicationController
     def index
-        render action: "index"
+        
+        redirect_to "account_login"
+
     end
 end
