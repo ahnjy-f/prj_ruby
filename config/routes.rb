@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   namespace :account do
     root "top#index"
     get "login" => "session#new", as: :login
@@ -8,4 +8,3 @@ Rails.application.routes.draw do
   end
 
 end
-
