@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
-    belongs_to :member, class_name: "Member", foreign_key: "id",optional: true
+    belongs_to :member,optional: true
 
     def password=(raw_password)
         if raw_password.kind_of?(String)
