@@ -1,7 +1,12 @@
-class Account::TopController < ApplicationController
+require "pp"
+class Account::TopController < Account::Base
     def index
-        
-        redirect_to "account_login"
-
+        if current_account
+            pp "ログイン成功"
+            render action: "index"
+        else
+            pp "login ページに戻ります"
+            redirect_to :account_login
+        end
     end
 end
