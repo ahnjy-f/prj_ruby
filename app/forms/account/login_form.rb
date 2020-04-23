@@ -4,3 +4,4 @@ class Account::LoginForm
 
     attr_accessor :mail_address, :password
     
+end
