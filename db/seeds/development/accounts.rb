@@ -1,7 +1,7 @@
 Account.create!(
  member_id: "0",
  mail_address: "admin@example.com",
- password: "password",
+ password_digest: "password",
  admin_flag: "1",
  created_at: DateTime.now,
  updated_at: DateTime.now
@@ -18,6 +18,7 @@ last_names = %w{
     中村:ナカムラ:nakamura
     小林:コバヤシ:kobayashi
     加藤:カトウ:kato
+    大野:オオノ:ono
 }
 
 first_names = %w{
@@ -31,8 +32,8 @@ first_names = %w{
     梅子:ウメコ:umeko
     鶴子:ツルコ:tsuruko
     亀子:カメコ:kameko
+    光:ヒカル:hikaru
 }
-
 
 10.times do |n|
     10.times do |m|
@@ -42,7 +43,7 @@ first_names = %w{
         Account.create!(
             member_id: (n*10) + m,
             mail_address: "#{ln[2]}.#{fn[2]}@example.com",
-            password: "pw",
+            password_digest: "pw",
             admin_flag: "0",
             created_at: DateTime.now,
             updated_at: DateTime.now
