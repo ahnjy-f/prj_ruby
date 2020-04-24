@@ -1,3 +1,32 @@
+birthplace = %w(青巻市 赤巻市 黄巻市)
+
+Member.create!(
+    last_name: "管理者",
+    last_name_phonetic: "かんりしゃ",
+    first_name: "管理者",
+    first_name_phonetic: "かんりしゃ",
+    face_photo_path: "",
+
+    created_at: DateTime.now,
+    updated_at: DateTime.now,
+    
+    birthplace: birthplace.sample,
+    birth_year_month: "生年月",
+    joining_year: "入社年月",
+    one_word_comment: "一言コメント",
+    personality: "性格",
+    hobby: "趣味",
+    favorite_things: "好きなもの",
+    hate_things: "嫌いなもの",
+    strong_point: "長所",
+    week_point: "短所",
+    special_skill: "得意なこと",
+    week_things: "苦手なこと",
+    happy_done_things: "されて嬉しいこと",
+    disgusted_things: "されたら嫌なこと",
+    freedom_message: "自由欄",
+)
+
 last_names = %w{
     佐藤:サトウ:sato
     鈴木:スズキ:suzuki
@@ -25,8 +54,6 @@ first_names = %w{
     亀子:カメコ:kameko
     光:ヒカル:hikaru
 }
-
-birthplace = %w(青巻市 赤巻市 黄巻市)
 
 10.times do |n|
     10.times do |m|

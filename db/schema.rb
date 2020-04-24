@@ -16,17 +16,18 @@ ActiveRecord::Schema.define(version: 2020_04_22_011021) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.bigint "members_id", null: false
+    t.bigint "member_id", null: false
     t.string "mail_address", null: false
     t.string "password_digest", null: false
     t.string "admin_flag", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["members_id"], name: "index_accounts_on_members_id"
+    t.index ["created_at"], name: "index_accounts_on_created_at"
+    t.index ["member_id", "created_at"], name: "index_accounts_on_member_id_and_created_at"
   end
 
   create_table "member_edit_histories", force: :cascade do |t|
-    t.bigint "members_id", null: false
+    t.bigint "member_id", null: false
     t.string "face_photo_path"
     t.string "one_word_comment"
     t.string "personality"
@@ -42,7 +43,8 @@ ActiveRecord::Schema.define(version: 2020_04_22_011021) do
     t.string "freedom_message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["members_id"], name: "index_member_edit_histories_on_members_id"
+    t.index ["created_at"], name: "index_member_edit_histories_on_created_at"
+    t.index ["member_id", "created_at"], name: "index_member_edit_histories_on_member_id_and_created_at"
   end
 
   create_table "members", force: :cascade do |t|
@@ -67,10 +69,11 @@ ActiveRecord::Schema.define(version: 2020_04_22_011021) do
     t.string "disgusted_things"
     t.string "freedom_message"
     t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["last_name_phonetic", "first_name_phonetic"], name: "index_members_on_last_name_phonetic_and_first_name_phonetic"
   end
 
-  add_foreign_key "accounts", "members", column: "members_id"
-  add_foreign_key "member_edit_histories", "members", column: "members_id"
+  add_foreign_key "accounts", "members"
+  add_foreign_key "member_edit_histories", "members"
 end

@@ -1,3 +1,6 @@
 class MemberEditHistory < ApplicationRecord
-    belongs_to :member, class_name: "Member", foreign_key: "id",optional: true
+    self.inheritance_column = nil
+
+    belongs_to :member, class_name: "Member", foreign_key: "member_id"
+    alias_attribute :occurred_at, :updated_at
 end

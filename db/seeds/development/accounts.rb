@@ -1,7 +1,7 @@
 Account.create!(
- members_id: "1",
+ member_id: "1",
  mail_address: "admin@example.com",
- password_digest: "password",
+ password: "password",
  admin_flag: "1",
  created_at: DateTime.now,
  updated_at: DateTime.now
@@ -41,9 +41,9 @@ first_names = %w{
         fn = first_names[m].split(":")
         
         Account.create!(
-            members_id: (n*10) + (m+1),
+            member_id: (n*10) + (m+2),
             mail_address: "#{ln[2]}.#{fn[2]}@example.com",
-            password_digest: "pw",
+            password: "pw",
             admin_flag: "0",
             created_at: DateTime.now,
             updated_at: DateTime.now

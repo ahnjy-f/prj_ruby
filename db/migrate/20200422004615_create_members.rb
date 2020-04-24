@@ -22,8 +22,10 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.string :disgusted_things
       t.string :freedom_message
       t.datetime :deleted_at # '≠NULLの場合、論理削除されている
-      t.datetime :created_at, null: false
-      t.datetime :updated_at, null: false
+      
+      t.timestamps
     end
+
+    add_index :members, [ :last_name_phonetic, :first_name_phonetic ]
   end
 end
