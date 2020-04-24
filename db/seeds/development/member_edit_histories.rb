@@ -1,5 +1,5 @@
 MemberEditHistory.create!(
-    member_id: "1",
+    members_id: "1",
     face_photo_path: "0",
     created_at: DateTime.now,
     updated_at: DateTime.now,

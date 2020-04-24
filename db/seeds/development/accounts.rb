@@ -39,7 +39,7 @@ first_names = %w{
     10.times do |m|
         ln = last_names[n].split(":")
         fn = first_names[m].split(":")
-
+        
         Account.create!(
             member_id: (n*10) + (m+2),
             mail_address: "#{ln[2]}.#{fn[2]}@example.com",
