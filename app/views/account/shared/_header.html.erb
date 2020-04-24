@@ -1,0 +1,15 @@
+<header>
+    <%= content_tag(:span, flash.notice, class: 'notice') if flash.notice %>
+    <%= content_tag(:span, flash.alert, class: 'alert') if flash.alert %>
+    <%=
+        if true
+            link_to "フロフィール", :account_root
+            link_to "パスワード変更", :account_root
+            link_to "ログアウト", :account_root
+            link_to "メンーバ一覧", :account_root
+        else
+            link_to "ログイン", :account_root
+        end
+    %>
+    <div class="icon rounded-circle"><img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_960_720.jpg" class="icon rounded-circle"></div>
+</header>
