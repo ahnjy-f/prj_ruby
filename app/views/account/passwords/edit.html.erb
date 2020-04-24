@@ -2,8 +2,8 @@
 <h1><%= @title %></h1>
 
 <div id="generic-form">
-    <%= form_with model: @change_password_form, url: :account_passwords, 
-        method: :patch do |f| %>
+    <%= form_with model: @change_password_form, url: :account_passwords_edit, method: :patch do |f| %>
+        <%= content_tag(:span, flash.alert, class: "alert") if flash.alert%>
         <div>
             <%= f.label :current_password, "現在のパスワード" %>
             <%= f.password_field :current_password, size: 32, 

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resource :sessions, only: [ :create, :destroy] 
     resource except: [ :new, :create, :destroy]
     get "members/show" #フロフィール画面
-    get "passwords/show" #パスワード変更
+    get "passwords/edit" => "passwords#edit" 
     get "members/index" #メンーバ一覧
+    patch "passwords/edit" => "passwords#update"
   end
 
 end
