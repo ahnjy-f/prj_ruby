@@ -1,5 +1,5 @@
 Account.create!(
- member_id: "0",
+ members_id: "1",
  mail_address: "admin@example.com",
  password_digest: "password",
  admin_flag: "1",
@@ -39,9 +39,9 @@ first_names = %w{
     10.times do |m|
         ln = last_names[n].split(":")
         fn = first_names[m].split(":")
-
+        
         Account.create!(
-            member_id: (n*10) + m,
+            members_id: (n*10) + (m+1),
             mail_address: "#{ln[2]}.#{fn[2]}@example.com",
             password_digest: "pw",
             admin_flag: "0",
