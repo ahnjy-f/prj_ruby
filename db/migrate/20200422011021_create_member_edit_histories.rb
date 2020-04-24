@@ -1,7 +1,7 @@
 class CreateMemberEditHistories < ActiveRecord::Migration[6.0]
   def change
     create_table :member_edit_histories do |t|
-      t.references :members,foreign_key: true, null: false # 社員テーブル
+      t.references :member,foreign_key: true, null: false, index: false # 社員テーブル
       t.string :face_photo_path
       t.string :one_word_comment
       t.string :personality
@@ -18,5 +18,8 @@ class CreateMemberEditHistories < ActiveRecord::Migration[6.0]
       t.datetime :created_at, null: false
       t.datetime :updated_at, null: false
     end
+
+    add_index :member_edit_histories, :created_at
+    add_index :member_edit_histories, [ :member_id, :created_at ]
   end
 end
