@@ -23,10 +23,10 @@ class Account::SessionsController < Account::Base
             pp "入りました"
             pp session
             session[:account_id] = account_info.id
-            flash.alert = "ログイン完了"
+            flash.notice = "ログイン完了"
             redirect_to :account_root
         else
-            flash.notice = "メールアドレスか　パスワードが　正しくないです"
+            flash.alert = "メールアドレスか　パスワードが　正しくないです"
             render action: "new"
         end
     
@@ -35,7 +35,7 @@ class Account::SessionsController < Account::Base
     def destroy
         pp "ログアウト"
         session.delete(:account_id)
-        flash.notice = "ログアウトできました"
+        flash.alert = "ログアウトできました"
         redirect_to :account_root
     end
 
