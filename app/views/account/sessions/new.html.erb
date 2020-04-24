@@ -4,7 +4,7 @@
     <h1><%= @title %></h1>
 
     <%= content_tag(:span, flash.notice, class: "notice") if flash.notice%>
-    <%= form_with model: @form, url: :account_session do |f| %>
+    <%= form_with model: @form, url: :account_sessions do |f| %>
         <div>
             <%= f.label :mail_address, "ログインid" %>
             <%= f.text_field :mail_address %>
