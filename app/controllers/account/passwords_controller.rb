@@ -16,7 +16,7 @@ class Account::PasswordsController < Account::Base
         @change_password_form.object = current_account
         
         if @change_password_form.save
-            flash.alert = "変更されました"
+            flash.notice = "変更されました"
             redirect_to :account_root
         else
             flash.alert = "PassWord 変更失敗"
