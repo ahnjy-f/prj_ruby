@@ -2,6 +2,7 @@
 <h1><%= @title %></h1>
 
 <ul class="menu">
+    <%= content_tag(:span, flash.alert, class: "alert") if flash.alert%>
     <li><%= link_to "フロフィール", "/account/members/show" %></li>
     <li><%= link_to "パスワード変更", "/account/passwords/show" %></li>
     <li><%= link_to "ログアウト", :account_session, method: :delete %></li>
