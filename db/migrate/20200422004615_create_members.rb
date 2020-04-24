@@ -7,8 +7,8 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.string :first_name_phonetic, null: false 
       t.string :face_photo_path
       t.string :birthplace
-      t.string :birth_year_month # フォーマット：yyyyMM形式
-      t.string :joining_year # フォーマット：yyyyMMDD形式
+      t.integer :birth_year_month # フォーマット：yyyyMM形式
+      t.integer :joining_year # フォーマット：yyyyMMDD形式
       t.string :one_word_comment # 一覧に表示する
       t.string :personality
       t.string :hobby

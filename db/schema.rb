@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2020_04_22_011021) do
     t.string "first_name_phonetic", null: false
     t.string "face_photo_path"
     t.string "birthplace"
-    t.string "birth_year_month"
-    t.string "joining_year"
+    t.integer "birth_year_month"
+    t.integer "joining_year"
     t.string "one_word_comment"
     t.string "personality"
     t.string "hobby"
