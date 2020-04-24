@@ -22,7 +22,6 @@ class Account::SessionsController < Account::Base
         if Account::Authenticator.new(account_info).authenticate(@form.password)
             pp "入りました"
             session[:account_id] = account_info.id
-    
             flash.alert = "ログイン完了"
             redirect_to :account_root
         else
