@@ -1,7 +1,7 @@
 class CreateMemberEditHistories < ActiveRecord::Migration[6.0]
   def change
     create_table :member_edit_histories do |t|
-      t.references :members,foreign_key: true, null: false # 社員テーブル
+      # t.references :members,foreign_key: true, null: false # 社員テーブル
       t.string :face_photo_path
       t.string :one_word_comment
       t.string :personality

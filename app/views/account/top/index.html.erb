@@ -4,6 +4,6 @@
 <ul class="menu">
     <li><%= link_to "フロフィール", "/account/members/show" %></li>
     <li><%= link_to "パスワード変更", "/account/passwords/show" %></li>
-    <li><%= link_to "ログアウト" %></li>
+    <li><%= link_to "ログアウト", :account_session, method: :delete %></li>
     <li><%= link_to "メンーバ一覧", "/account/members/index" %></li>
 </ul>
