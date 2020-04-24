@@ -11,8 +11,8 @@ Member.create!(
     updated_at: DateTime.now,
     
     birthplace: birthplace.sample,
-    birth_year_month: "生年月",
-    joining_year: "入社年月",
+    birth_year_month: 19900418,
+    joining_year: 20200313,
     one_word_comment: "一言コメント",
     personality: "性格",
     hobby: "趣味",
@@ -72,8 +72,8 @@ first_names = %w{
         updated_at: DateTime.now,
         
         birthplace: birthplace.sample,
-        birth_year_month: "生年月",
-        joining_year: "入社年月",
+        birth_year_month: 19900418,
+        joining_year: 20200313,
         one_word_comment: "一言コメント",
         personality: "性格",
         hobby: "趣味",
