@@ -7,6 +7,7 @@ class Account::TopController < Account::Base
         else
             pp "login ページに戻ります"
             redirect_to :account_login
+            
         end
     end
 end
