@@ -24,6 +24,10 @@ class Account::SessionsController < Account::Base
             pp "入りました"
             pp session
             session[:account_id] = account_info.id
+            session[:account_admin_flag] = account_info.admin_flag
+            pp "============="
+            pp session[:account_admin_flag]
+            pp "============="
             flash.notice = "ログイン完了"
             redirect_to :account_root
         else
