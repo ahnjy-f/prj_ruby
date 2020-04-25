@@ -5,6 +5,6 @@
     <%= content_tag(:span, flash.alert, class: "alert") if flash.alert%>
     <li><%= link_to "フロフィール", "/account/members/show" %></li>
     <li><%= link_to "パスワード変更", "/account/passwords/edit" %></li>
-    <li><%= link_to "ログアウト", :account_sessions, method: :delete %></li>
+    <li><%= link_to "ログアウト", :account_session, method: :delete %></li>
     <li><%= link_to "メンーバ一覧", "/account/members/index" %></li>
 </ul>
