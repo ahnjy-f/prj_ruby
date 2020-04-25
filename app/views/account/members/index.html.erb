@@ -1,2 +1,14 @@
-<% @title = "メンーバ一覧のページ" %>
+<% @title = "Member List" %>
 <h1><%= @title %></h1>
+
+<div class="container">
+    <div class="row">
+        <% @member.each do |m| %>
+            <div class="col-xs-3">
+                <a href=""><%= m.last_name %> <%= m.first_name %></a>
+                <p><%= m.one_word_comment %></p>
+            </div>
+        <% end %>
+    </div>
+    <%= paginate @member %>
+</div>
