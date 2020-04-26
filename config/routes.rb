@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     
     # get "members/show" #フロフィール画面
     get "passwords/edit" => "passwords#edit" 
-    # get "members/index" #メンーバ一覧
+    get "members/index" #メンーバ一覧
     patch "passwords/edit" => "passwords#update"
     
     resources :members, except: [ :destroy ]
