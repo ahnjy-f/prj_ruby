@@ -9,11 +9,12 @@ class Account::MembersController < Account::Base
 
     def edit
         @member = current_member
-        @account = current_account
+        @account = Account.find_by(id: session[:account_id])
         
     end
 
     def update
+        @account = Account.find_by(id: session[:account_id])
         @member = current_member
         @member.assign_attributes(member_params)
         if @member.save
