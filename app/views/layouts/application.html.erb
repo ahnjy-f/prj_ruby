@@ -17,16 +17,9 @@
     <div id='wrapper'>
       <%= render 'account/shared/header' %>
       <div id='container'>
-          <div id='container_div'>
-          application
-            <% if content_for? :content %>
-            yeld: content
-              <%= yield :content %>
-            <% else %>
-            yled
-              <%= yield %>
-            <% end %>
-          </div>
+        <div id='container_div'>
+          <%= yield %>
+        </div>
       </div>
       <%= render 'shared/footer' %>
     </div>

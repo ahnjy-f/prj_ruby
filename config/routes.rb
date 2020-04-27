@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get "passwords/edit" => "passwords#edit" 
     get "members/index" #メンーバ一覧
     patch "passwords/edit" => "passwords#update"
+    get "admin/show" => "admin#show"
   end
+
 
 end
