@@ -20,15 +20,17 @@ class Account::AdminController < Account::Base
     end
 
     def update
-        
         @m = Member.find(params[:id])
         @m.assign_attributes(params[:member])
-        if @m.save
-            flash.notice = "編集成功"
-            redirect_to:account_root
-        else
-            flash.notice = "編集成功"
-            redirect_to:account_root
-        end
+    # pp "================="
+    # pp @m.assign_attributes(params[:member])    
+    # pp "================="
+    #     if @m.save
+    #         flash.notice = "編集成功"
+    #         redirect_to:account_root
+    #     else
+    #         flash.notice = "編集成功"
+    #         redirect_to:account_root
+    #     end
     end
 end

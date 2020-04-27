@@ -3,5 +3,31 @@
 </div>
 <div>
     <%= f.label :last_name, "カナ(名字)", class: "required" %>
-    <%= f.text_field :last_name, size: 32, required: true %>
+    <%= f.text_field :last_name, size: 10, required: true %>
+    <%= f.label :first_name, "カナ(名前)", class: "required" %>
+    <%= f.text_field :first_name, size: 10, required: true %>
 </div>
+
+<div>
+    <%= f.label :last_name_phonetic, "カナ(名字)", class: "required" %>
+    <%= f.text_field :last_name_phonetic, size: 10, required: true %>
+    <%= f.label :first_name_phonetic, "カナ(名前)", class: "required" %>
+    <%= f.text_field :first_name_phonetic, size: 10, required: true %>
+</div>
+
+
+<%= f.fields_for :account do |m| %>
+<div>
+<%= m.label :mail_address, "メールアドレス", class: "required" %>
+<%= m.text_field :mail_address%>
+</div>
+<div>
+<%= m.label :password, "パスワード", class: "required" %>
+<%= m.text_field :password%>
+</div>
+<div>
+<%= m.label :admin_flag, "adminの権限", class: "required" %>
+<%= m.check_box :admin_flag%>
+</div>
+
+<% end %>
