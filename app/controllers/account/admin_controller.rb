@@ -4,7 +4,7 @@ class Account::AdminController < Account::Base
     def show
         if current_admin
         
-        @m=Member.joins(:account).select("*")
+        @m=Member.select("*")
         
         else
             flash.alert="あなたは入れません"
@@ -22,7 +22,13 @@ class Account::AdminController < Account::Base
     def update
         
         @m = Member.find(params[:id])
-        @m.assign_attributes(params[member])
-        pp @m
+        @m.assign_attributes(params[:member])
+        if @m.save
+            flash.notice = "編集成功"
+            redirect_to:account_root
+        else
+            flash.notice = "編集成功"
+            redirect_to:account_root
+        end
     end
 end
