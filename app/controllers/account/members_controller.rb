@@ -66,6 +66,7 @@ class Account::MembersController < Account::Base
         edithistory.happy_done_things = @member.happy_done_things
         edithistory.disgusted_things = @member.disgusted_things
         edithistory.freedom_message = @member.freedom_message
+        edithistory.created_at = @member.created_at
         edithistory.save
     end
 
