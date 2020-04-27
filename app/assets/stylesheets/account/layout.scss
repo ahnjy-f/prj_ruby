@@ -29,12 +29,13 @@ header{
     a{
         float: right;
         color: $very_light_gray;
-        margin: $wide;
     }
     .icon{
-        float: right;
         width: 40px;
         height: 40px;
+    }
+    .right{
+        float: right;
     }
 }
 footer{
