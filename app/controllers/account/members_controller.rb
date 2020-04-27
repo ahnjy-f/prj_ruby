@@ -37,6 +37,16 @@ class Account::MembersController < Account::Base
         end
     end
 
+    def create
+        @member = Member.new(member_params)
+            if @member.save
+                flash.notice = "登録されました"
+                redirect_to "/account/admin/show"
+            else
+                render action: "new"
+            end
+    end
+
     def current_member
         if session[:account_id]
             @current_member ||=

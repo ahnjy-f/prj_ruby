@@ -13,5 +13,38 @@ class Account::AdminController < Account::Base
         end
         # HitProduct.select("hit_products.id hit_product_id, book_marks.id book_mark_id, hit_q").left_joins(:book_marks)
 
-    end    
+    end
+
+    def new
+        @member = Member.new
+    end
+
+    def create
+        @member = Member.new(member_params)
+            if @member.save
+                flash.notice = "登録されました"
+                redirect_to :admin_show
+            else
+                render action: "new"
+            end
+    end
+
+    private def member_params
+        params.require(:member).permit(
+            :last_name, :last_name_phonetic, :first_name,
+            :first_name_phonetic, :face_photo_path,
+            :birth_year_month, :one_word_comment, :personality,
+            :hobby, :favorite_things, :hate_things,
+            :strong_point, :week_point, :special_skill,
+            :week_things, :happy_done_things, :disgusted_things,
+            :freedom_message,
+            account_attributes: [
+                :member_id,
+                :mail_address,
+                :password_digest,
+                :admin_flag
+            ]
+        )
+    end
+
 end
