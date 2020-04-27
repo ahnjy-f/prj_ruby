@@ -1,7 +1,6 @@
 class Account::MembersController < Account::Base
     def index
     end
-
     def show 
         @member = current_member
     end

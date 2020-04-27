@@ -16,7 +16,7 @@
 
         <% @m.each do |m| %>
         <tr>
-            <td><%= link_to "更新" ,[ :edit,:account, m]%></td>
+            <td><%= link_to "更新" , m.id.to_s+"/edit"%></td>
     
             <td>
                 <%= m.id %>

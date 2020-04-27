@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get "members/index" #メンーバ一覧
     patch "passwords/edit" => "passwords#update"
     get "admin/show" => "admin#show"
+    get "admin/:id/edit" => "admin#edit"
+    patch "admin/:id" =>"admin#update"
   end
 
 
