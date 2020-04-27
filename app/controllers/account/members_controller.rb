@@ -1,6 +1,9 @@
 class Account::MembersController < Account::Base
     def index
+        @member = Member.order(:first_name, :last_name)
+        @member = @member.page(params[:page])
     end
+    
 
     def show 
         @member = current_member
