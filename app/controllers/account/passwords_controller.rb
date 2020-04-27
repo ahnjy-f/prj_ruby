@@ -8,6 +8,8 @@ class Account::PasswordsController < Account::Base
         pp "情報"
         pp @change_password_form
         pp "=========================="
+        @current_account = current_account
+        @current_member = current_member
     end
     
     def update

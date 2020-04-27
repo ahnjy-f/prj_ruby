@@ -12,6 +12,7 @@ class Account::AdminController < Account::Base
             redirect_to :account_root
         end
         # HitProduct.select("hit_products.id hit_product_id, book_marks.id book_mark_id, hit_q").left_joins(:book_marks)
-
+        @account = current_account
+        @member = current_member
     end    
 end
