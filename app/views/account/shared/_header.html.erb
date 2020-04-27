@@ -36,9 +36,7 @@
                 <%= link_to 'ログアウト', :account_session, method: :delete, class: 'dropdown-item' %>
             </div>
         </div>
-        <div class="icon rounded-circle right">
-        # <img src="/assets/<%= @photo %>.jpg" class="icon rounded-circle">
-        </div>
+        <div class="icon rounded-circle right"><img src="/assets/<%= @photo %>.jpg" class="icon rounded-circle"></div>
     <% else %>
         <div class="dropdown right mr-3 ml-3">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,9 +45,7 @@
             <%= link_to 'ログイン', :account_login, class: 'dropdown-item'  %>
             </div>
             </div>
-            <div class="icon rounded-circle right">
-            # <img src="/assets/<%= @photo %>.jpg" class="icon rounded-circle">
-            </div>
+            <div class="icon rounded-circle right"><img src="/assets/<%= @photo %>.jpg" class="icon rounded-circle"></div>
     <% end %>
     
 </header>
