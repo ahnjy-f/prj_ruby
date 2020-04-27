@@ -22,7 +22,6 @@ class Account::MembersController < Account::Base
 
         if @member.save
 
-            # save_history
             @edithistory = MemberEditHistory.new(history_params)
             @edithistory.member_id = @member.id
             @edithistory.face_photo_path = @member.face_photo_path
@@ -66,25 +65,5 @@ class Account::MembersController < Account::Base
             :freedom_message, :created_at, :updated_at
         )
     end
-
-#     def save_history
-#         edithistory = MemberEditHistory.new
-#         edithistory.member_id = @member.id
-#         edithistory.face_photo_path = @member.face_photo_path
-#         edithistory.one_word_comment = @member.one_word_comment
-#         edithistory.personality = @member.personality
-#         edithistory.hobby = @member.hobby
-#         edithistory.favorite_things = @member.favorite_things
-#         edithistory.hate_things = @member.hate_things
-#         edithistory.strong_point = @member.strong_point
-#         edithistory.week_point = @member.week_point
-#         edithistory.special_skill = @member.special_skill
-#         edithistory.week_things = @member.week_things
-#         edithistory.happy_done_things = @member.happy_done_things
-#         edithistory.disgusted_things = @member.disgusted_things
-#         edithistory.freedom_message = @member.freedom_message
-#         edithistory.created_at = @member.created_at
-#         edithistory.save
-#     end
 
 end
