@@ -13,14 +13,23 @@ class Account::MembersController < Account::Base
     def edit
         @member = current_member
         @account = Account.find_by(id: session[:account_id])
-        
     end
 
     def update
         @account = Account.find_by(id: session[:account_id])
         @member = current_member
         @member.assign_attributes(member_params)
+
         if @member.save
+
+            @edithistory = MemberEditHistory.new(history_params)
+            @edithistory.member_id = @member.id
+            @edithistory.face_photo_path = @member.face_photo_path
+            @edithistory.created_at = @member.created_at
+            @edithistory.updated_at = DateTime.now
+            @edithistory.save
+            pp @edithistory
+
             flash.notice = "情報更新ができました。"
             redirect_to :account_member
         else
@@ -44,6 +53,16 @@ class Account::MembersController < Account::Base
             :strong_point, :week_point, :special_skill,
             :week_things, :happy_done_things, :disgusted_things,
             :freedom_message
+        )
+    end
+
+    private def history_params
+        params.require(:member).permit(
+            :member_id, :face_photo_path, :one_word_comment, :personality,
+            :hobby, :favorite_things, :hate_things,
+            :strong_point, :week_point, :special_skill,
+            :week_things, :happy_done_things, :disgusted_things,
+            :freedom_message, :created_at, :updated_at
         )
     end
 
