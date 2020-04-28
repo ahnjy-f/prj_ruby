@@ -10,6 +10,10 @@ class Account::AdminController < Account::Base
             flash.alert="あなたは入れません"
             redirect_to :account_root 
         end
+        # HitProduct.select("hit_products.id hit_product_id, book_marks.id book_mark_id, hit_q").left_joins(:book_marks)
+        @account = current_account
+        @member = current_member
+
         @m = @m.page(params[:page])
 
     end

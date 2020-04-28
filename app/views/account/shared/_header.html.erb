@@ -1,31 +1,33 @@
 <header>
-    <%= content_tag(:span, flash.notice, class: 'notice') if flash.notice %>
-    <%= content_tag(:span, flash.alert, class: 'alert') if flash.alert %>
+    <%= content_tag(:span, flash.notice, class: "notice") if flash.notice %>
+    <%= content_tag(:span, flash.alert, class: "alert") if flash.alert %>
 
     <%
-    if @current_account && @current_member
+    if @current_member 
         full_name = @current_member.last_name + @current_member.first_name
         @title = "①#{full_name}"
         photo = @current_member.face_photo_path
         @photo = "#{photo}"
-    elsif @current_member 
-        full_name =  @current_member.last_name + @current_member.first_name
-        @title = "②#{full_name}"
-        photo = @current_member.face_photo_path
-        @photo = "#{photo}"
-    elsif @current_account
-        full_name =  @current_account.mail_address
+    elsif @account 
+        full_name =  @account.mail_address
         @title = "③#{full_name}"
     else
         @title = "④職員"
+        @photo = "0"
     end%>
+
      <span>(name:<%= @title %>) (photo:<%= @photo %>)</spanp>
-     <%= content_tag(:span, "C_account", class: 'alert') if @current_account %>
-     <%= content_tag(:span, "C_member", class: 'notice') if @current_member %>
-     <%= content_tag(:span, "account", class: 'alert') if @account %>
-     <%= content_tag(:span, "member", class: 'notice') if @member %>
+     <%= content_tag(:span, "C_account ", class: "alert") if @current_account %>
+     <%= content_tag(:span, "C_member", class: "notice") if @current_member %>
+     <%= content_tag(:span, "account", class: "alert") if @account %>
+     <%= content_tag(:span, "member", class: "notice") if @current_member %>
      
-    <% if @current_account || @current_member %>
+     <%if @current_member %>
+     <%= @current_member.last_name %>
+     <%= @current_member.account.admin_flag %>
+     <% end %>
+
+    <% if @account || @current_member %>
         <div class="dropdown right mr-3 ml-3">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= @title %></button>
@@ -33,7 +35,10 @@
                 <a class="dropdown-item" href="/account/members/show">プロフィール</a>
                 <a class="dropdown-item" href="/account/passwords/edit">パスワード変更</a>
                 <a class="dropdown-item" href="/account/members/index">メンバー一覧</a>
-                <%= link_to 'ログアウト', :account_session, method: :delete, class: 'dropdown-item' %>
+                <%= link_to "ログアウト", :account_session, method: :delete, class: "dropdown-item" %>
+                <%if @current_member.account.admin_flag == "1"%>
+                    <a class="dropdown-item" href="/account/admin/show">管理者一覧</a>
+                <% end %>
             </div>
         </div>
         <div class="icon rounded-circle right"><img src="/assets/<%= @photo %>.jpg" class="icon rounded-circle"></div>
@@ -42,7 +47,7 @@
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= @title %></button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'ログイン', :account_login, class: 'dropdown-item'  %>
+            <%= link_to "ログイン", :account_login, class: "dropdown-item"  %>
             </div>
             </div>
             <div class="icon rounded-circle right"><img src="/assets/<%= @photo %>.jpg" class="icon rounded-circle"></div>
