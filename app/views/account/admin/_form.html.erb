@@ -14,20 +14,17 @@
     <%= f.label :first_name_phonetic, "カナ(名前)", class: "required" %>
     <%= f.text_field :first_name_phonetic, size: 10, required: true %>
 </div>
-
-
-<%= f.fields_for :account do |m| %>
-<div>
-<%= m.label :mail_address, "メールアドレス", class: "required" %>
-<%= m.text_field :mail_address%>
-</div>
-<div>
-<%= m.label :password, "パスワード", class: "required" %>
-<%= m.text_field :password%>
-</div>
-<div>
-<%= m.label :admin_flag, "adminの権限", class: "required" %>
-<%= m.check_box :admin_flag%>
-</div>
-
+<%= f.fields_for :account,(@m.account) do |i| %>
+    <div>
+    <%= i.label :mail_address, "メールアドレス", class: "required" %>
+    <%= i.text_field :mail_address, size:30%>
+    </div>
+    <div>
+    <%= i.label :password, "パスワード", class: "required" %>
+    <%= i.password_field :password, size:25%>
+    </div>
+    <div>
+    <%= i.label :admin_flag, "adminの権限", class: "required" %>
+    <%= i.check_box :admin_flag%>
+    </div>
 <% end %>
