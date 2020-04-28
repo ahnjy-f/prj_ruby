@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     patch "members/:id" => "members#update"
 
     get "admin/show" => "admin#show"
+    get "admin/:id/edit" => "admin#edit"
+    patch "admin/:id" =>"admin#update"
   end
 
 
