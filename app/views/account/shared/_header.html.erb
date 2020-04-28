@@ -3,6 +3,7 @@
     <%= content_tag(:span, flash.alert, class: "alert") if flash.alert %>
 
     <%
+
     if @current_member 
         full_name = @current_member.last_name + @current_member.first_name
         @title = "①#{full_name}"
