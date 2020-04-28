@@ -5,6 +5,10 @@ class Account::MembersController < Account::Base
         @member = @member.page(params[:page])
     end
     
+    def detail
+        @member = Member.find(params[:id])
+        pp @member = Member.find(params[:id])
+    end
 
     def show 
         @member = current_member
