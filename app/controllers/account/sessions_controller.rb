@@ -44,4 +44,7 @@ class Account::SessionsController < Account::Base
         redirect_to :account_root
     end
 
+    def edit
+    end
+
 end

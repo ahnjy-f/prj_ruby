@@ -7,7 +7,7 @@
     <li><%= link_to "パスワード変更", "/account/passwords/edit" %></li>
     <li><%= link_to "ログアウト", :account_session, method: :delete %></li>
     <li><%= link_to "メンーバ一覧", "/account/members/index" %></li>
-    <%if @current_account.admin_flag == "1"%>
+    <%if @current_member.account.admin_flag == "1"%>
         <li><%= link_to "管理者一覧", "/account/admin/show" %></li>
     <% end %>
 </ul>

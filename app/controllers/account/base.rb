@@ -3,12 +3,8 @@ class Account::Base < ApplicationController
     private def current_account
         pp "ログインできたのか確認中"
         if session[:account_id]
-            pp "入りました"
             @current_account ||=
                 Account.find_by(id: session[:account_id])
-            pp "============="
-            pp session[:account_admin_flag]
-            pp "============="
         end
     end
 
@@ -18,6 +14,13 @@ class Account::Base < ApplicationController
             true
         else
             false
+        end
+    end
+
+    def current_member
+        if session[:account_id]
+            @current_member ||=
+                Member.find_by(id: session[:account_id])
         end
     end
     

@@ -3,6 +3,8 @@ class Account < ApplicationRecord
 
     # validates :member_id, presence: true
 
+    validates :member_id, presence: true
+
     def password=(raw_password)
         if raw_password.kind_of?(String)
             self.password_digest = BCrypt::Password.create(raw_password)
