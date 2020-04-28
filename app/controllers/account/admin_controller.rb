@@ -15,26 +15,25 @@ class Account::AdminController < Account::Base
         @member = current_member
 
         @m = @m.page(params[:page])
+        end
+    
+    def edit 	
+        @m = Member.find(params[:id])	
+        pp @m.account.mail_address	
+    end	
 
-    end
-
-    def edit 
-        @m = Member.find(params[:id])
-        pp @m.account.mail_address
-    end
-
-    def update
-        @m = Member.find(params[:id])
-        @m.assign_attributes(params[:member])
-    # pp "================="
-    # pp @m.assign_attributes(params[:member])    
-    # pp "================="
-    #     if @m.save
-    #         flash.notice = "編集成功"
-    #         redirect_to:account_root
-    #     else
-    #         flash.notice = "編集成功"
-    #         redirect_to:account_root
-    #     end
-    end
+    def update	
+        @m = Member.find(params[:id])	
+        @m.assign_attributes(params[:member])	
+    # pp "================="	
+    # pp @m.assign_attributes(params[:member])    	
+    # pp "================="	
+    #     if @m.save	
+    #         flash.notice = "編集成功"	
+    #         redirect_to:account_root	
+    #     else	
+    #         flash.notice = "編集成功"	
+    #         redirect_to:account_root	
+    #     end	
+    end	
 end

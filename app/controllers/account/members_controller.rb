@@ -9,6 +9,9 @@ class Account::MembersController < Account::Base
     end
     
     def detail
+        @current_account = current_account
+        @current_member = current_member
+        
         @member = Member.find(params[:id])
         pp @member = Member.find(params[:id])
     end
