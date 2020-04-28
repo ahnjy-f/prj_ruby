@@ -1,5 +1,7 @@
 class Account < ApplicationRecord
-    belongs_to :member, class_name: "Member", foreign_key: "member_id"
+    belongs_to :member, class_name: "Member", foreign_key: "member_id", optional: true
+
+    # validates :member_id, presence: true
 
     validates :member_id, presence: true
 
