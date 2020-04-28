@@ -3,29 +3,29 @@
     <%= content_tag(:span, flash.alert, class: 'alert') if flash.alert %>
 
     <%
-    if @account && @member
-        full_name = @member.last_name + @member.first_name
+    if @current_account && @current_member
+        full_name = @current_member.last_name + @current_member.first_name
         @title = "①#{full_name}"
-        photo = @member.face_photo_path
+        photo = @current_member.face_photo_path
         @photo = "#{photo}"
-    elsif @member 
-        full_name =  @member.last_name + @member.first_name
+    elsif @current_member 
+        full_name =  @current_member.last_name + @current_member.first_name
         @title = "②#{full_name}"
-        photo = @member.face_photo_path
+        photo = @current_member.face_photo_path
         @photo = "#{photo}"
-    elsif @account
-        full_name =  @account.mail_address
+    elsif @current_account
+        full_name =  @current_account.mail_address
         @title = "③#{full_name}"
     else
         @title = "④職員"
     end%>
      <span>(name:<%= @title %>) (photo:<%= @photo %>)</spanp>
-     <%= content_tag(:span, "C_account ", class: 'alert') if @account %>
-     <%= content_tag(:span, "C_member", class: 'notice') if @member %>
+     <%= content_tag(:span, "C_account", class: 'alert') if @current_account %>
+     <%= content_tag(:span, "C_member", class: 'notice') if @current_member %>
      <%= content_tag(:span, "account", class: 'alert') if @account %>
      <%= content_tag(:span, "member", class: 'notice') if @member %>
      
-    <% if @account || @member %>
+    <% if @current_account || @current_member %>
         <div class="dropdown right mr-3 ml-3">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= @title %></button>
