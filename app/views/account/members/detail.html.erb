@@ -1,4 +1,4 @@
-<% @title = "フロフィールのページ" %>
+<% @title = "Member List" %>
 <h1><%= @title %></h1>
 
 <div class="table-wrapper">
@@ -27,6 +27,7 @@
                 <%= @member.one_word_comment %>
             </td>
         </tr>
+     
         <tr>
             <th>性格</th>
             <th>趣味</th>
@@ -75,8 +76,8 @@
         </tr>
     </table>
 
-    <div class="buttons">
-        <%= button_to "メンバー情報更新", [ :edit, :account, @member ] %>
+    <div class="links">
+        <%= link_to "閉じる", request.referer.present? ? request.referer : default_path %>
     </div>
 
 </div>
