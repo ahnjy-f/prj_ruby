@@ -2,7 +2,7 @@
 <h1><%= @title %></h1>
 
 <div id="generic-form">
-    <%= form_with model: @member, url: [ :account, @member ] do |f| %>
+    <%= form_with model: @member, url: [ :account_admin_new ] do |f| %>
         <%= render "form", f: f %>
         <div class="buttons">
             <%= f.submit "登録" %>

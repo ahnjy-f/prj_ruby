@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     
     resources :admin, except: [ :destroy ]
     get "admin/new" => "admin#new"
-    post "admin" => "admin#create"
+    # post "admin" => "admin#create"
     post "admin/new" => "admin#create"
   end
 

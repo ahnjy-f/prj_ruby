@@ -17,23 +17,30 @@ class Account::AdminController < Account::Base
 
     def new
         @member = Member.new
+        @member.build_account
     end
 
     def create
         @member = Member.new(member_params)
+        pp @member
+        
             if @member.save
                 flash.notice = "登録されました"
-                redirect_to :admin_show
+                redirect_to "/account/admin/show"
             else
+                pp @member.errors
+                flash.now.alert = "登録されませんでした"
                 render action: "new"
             end
     end
+
+
 
     private def member_params
         params.require(:member).permit(
             :last_name, :last_name_phonetic, :first_name,
             :first_name_phonetic, :face_photo_path,
-            :birth_year_month, :one_word_comment, :personality,
+            :birth_year_month, :joining_year, :one_word_comment, :personality,
             :hobby, :favorite_things, :hate_things,
             :strong_point, :week_point, :special_skill,
             :week_things, :happy_done_things, :disgusted_things,
@@ -41,7 +48,7 @@ class Account::AdminController < Account::Base
             account_attributes: [
                 :member_id,
                 :mail_address,
-                :password_digest,
+                :password,
                 :admin_flag
             ]
         )
