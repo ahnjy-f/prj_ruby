@@ -8,6 +8,13 @@ class Account::MembersController < Account::Base
         @member = @member.page(params[:page])
     end
     
+    def detail
+        @current_account = current_account
+        @current_member = current_member
+        
+        @member = Member.find(params[:id])
+        pp @member = Member.find(params[:id])
+    end
 
     def show 
         @current_account = current_account
